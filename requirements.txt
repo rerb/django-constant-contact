@@ -1,0 +1,5 @@
+Django==1.6.5
+django-jsonfield==0.9.13
+mailchimp==2.0.9
+nap==2.0.0
+requests==2.5.3

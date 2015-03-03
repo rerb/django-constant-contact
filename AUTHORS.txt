@@ -1,0 +1,4 @@
+Authors ordered by first contribution.
+
+Bob Erb <bob.erb@aashe.org>
+Benjamin Stookey <ben@aashe.org>
