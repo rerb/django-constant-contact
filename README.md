@@ -1,4 +1,4 @@
-[![Build Status](https://drone.io/github.com/AASHE/django-constant-contact/status.png)](https://drone.io/github.com/AASHE/django-constant-contact/latest)
+[![Build Status](https://travis-ci.org/AASHE/django-constant-contact.svg?branch=master)](https://travis-ci.org/AASHE/django-constant-contact)
 
 # django-constant-contact
 
