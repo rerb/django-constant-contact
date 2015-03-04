@@ -131,10 +131,10 @@ class ConstantContactTests(unittest.TestCase):
 
         Pretty weak test.  Makes no assertions.
         """
-        email_marketing_campaign = self.cc.new_email_marketing_campaign(
+        self.email_marketing_campaign = self.cc.new_email_marketing_campaign(
             **self.email_marketing_campaign_kwargs)
         html, text = self.cc.preview_email_marketing_campaign(
-            email_marketing_campaign)
+            self.email_marketing_campaign)
 
 
 class EmailMarketingCampaignTests(django.test.TestCase):
