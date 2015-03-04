@@ -1,16 +1,13 @@
 language: python
 python:
-  # - "2.6"
-  - "2.7"
-  # - "3.2"
-  # - "3.3"
-  # - "3.4"
-# command to install dependencies
+- '2.7'
 install:
-  - pip install -r requirements.txt
-  - pip install -r test_requirements.txt
-# command to run tests
-script:
-  coverage run run_tests.py
-after_success:
-  coveralls
+- pip install -r requirements.txt
+- pip install -r test_requirements.txt
+script: coverage run run_tests.py
+after_success: coveralls
+notifications:
+  hipchat:
+    rooms:
+      secure: JEl46zeZGEXgk5Gd0CBEAo0NOpGEGEKSy4d8K4hYbdX1eLQaHy3zXscuzkXMYzffE7sjGmYT3L7GtKVoI8DE2aPcI4i1/+ELbw0tpzU4n5o1RXzNN+rk0978s+TRFi4pP4H9rU1JaaaiNNuQYQRVbr0W5w08rAblbXEDox2SbD4=
+  email: false
