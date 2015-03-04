@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/AASHE/django-constant-contact.svg?branch=master)](https://travis-ci.org/AASHE/django-constant-contact)
+[![Coverage Status](https://coveralls.io/repos/AASHE/django-constant-contact/badge.svg?branch=master)](https://coveralls.io/r/AASHE/django-constant-contact?branch=master)
 
 # django-constant-contact
 
