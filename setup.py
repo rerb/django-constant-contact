@@ -14,8 +14,8 @@ setup(name='django-constant-contact',
     url='https://github.com/aashe/django-constant-contact',
     long_description=read("README.md"),
     packages=[
-        'django-constant-contact',
-        'django-constant-contact.migrations'
+        'django_constant_contact',
+        'django_constant_contact.migrations'
         ],
     classifiers=[
         'Environment :: Web Environment',
