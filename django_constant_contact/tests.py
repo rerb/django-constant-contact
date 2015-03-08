@@ -51,8 +51,8 @@ class ConstantContactTests(unittest.TestCase):
     def test_create_email_marketing_campaign(self):
         self.email_marketing_campaign = self.cc.new_email_marketing_campaign(
             **self.email_marketing_campaign_kwargs)
-        self.assertIsInstance(self.email_marketing_campaign,
-                              EmailMarketingCampaign)
+        assert isinstance(self.email_marketing_campaign,
+                          EmailMarketingCampaign)
 
     def test_update_email_marketing_campaign(self):
         """Can we update an Email Marketing Campaign?
