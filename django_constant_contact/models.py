@@ -7,11 +7,6 @@ import jsonfield
 import mailchimp
 import nap
 
-from utils import (
-    CONSTANT_CONTACT_COUNTRIES,
-    ConstantContactAPIError,
-    ConstantContact)
-
 
 class ConstantContactAPIError(Exception):
     """An exception that passes error info from response to exception catcher.
