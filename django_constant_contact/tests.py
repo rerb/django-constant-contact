@@ -22,6 +22,13 @@ ORG_ADDRESS = {
 }
 
 
+# Define assertIn here, since it doesn't live on unittest.TestCase
+# until Python 2.7.
+def assertIn(self, test_value, expected_set):
+    msg = "%s did not occur in %s" % (test_value, expected_set)
+    self.assert_(test_value in expected_set, msg)
+
+
 class ConstantContactTests(unittest.TestCase):
 
     def setUp(self):
@@ -150,8 +157,8 @@ class ConstantContactTests(unittest.TestCase):
             **kwargs)
         html, text = self.cc.preview_email_marketing_campaign(
             self.email_marketing_campaign)
-        self.assertIn(link_text, html)
-        self.assertIn(page_text, html)
+        assertIn(self, link_text, html)
+        assertIn(self, page_text, html)
 
     def test_update_view_as_webpage(self):
         """Can we set the "view as webpage" flag when we update an EMC?
@@ -171,8 +178,8 @@ class ConstantContactTests(unittest.TestCase):
             self.cc.update_email_marketing_campaign(**kwargs))
         html, text = self.cc.preview_email_marketing_campaign(
             self.email_marketing_campaign)
-        self.assertIn(link_text, html)
-        self.assertIn(page_text, html)
+        assertIn(self, link_text, html)
+        assertIn(self, page_text, html)
 
     def test_create_set_permission_reminder(self):
         """Can we set the permission reminder flag when we create an EMC?
@@ -186,7 +193,7 @@ class ConstantContactTests(unittest.TestCase):
             **kwargs)
         html, text = self.cc.preview_email_marketing_campaign(
             self.email_marketing_campaign)
-        self.assertIn(reminder_text, html)
+        assertIn(self, reminder_text, html)
 
     def test_update_set_permission_reminder(self):
         """Can we set the permission reminder flag when we update an EMC?
@@ -204,7 +211,7 @@ class ConstantContactTests(unittest.TestCase):
             self.cc.update_email_marketing_campaign(**kwargs))
         html, text = self.cc.preview_email_marketing_campaign(
             self.email_marketing_campaign)
-        self.assertIn(reminder_text, html)
+        assertIn(self, reminder_text, html)
 
 
 class EmailMarketingCampaignTests(django.test.TestCase):
