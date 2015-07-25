@@ -10,15 +10,15 @@ from .models import (ConstantContact,
 
 
 ORG_ADDRESS = {
-        'organization_name': 'My Organization',
-        'address_line_1': '123 Maple Street',
-        'address_line_2': 'Suite 1',
-        'address_line_3': '',
-        'city': 'Anytown',
-        'state': 'MA',
-        'international_state': '',
-        'postal_code': '01444',
-        'country': 'US'
+    'organization_name': 'My Organization',
+    'address_line_1': '123 Maple Street',
+    'address_line_2': 'Suite 1',
+    'address_line_3': '',
+    'city': 'Anytown',
+    'state': 'MA',
+    'international_state': '',
+    'postal_code': '01444',
+    'country': 'US'
 }
 
 
@@ -135,6 +135,76 @@ class ConstantContactTests(unittest.TestCase):
             **self.email_marketing_campaign_kwargs)
         html, text = self.cc.preview_email_marketing_campaign(
             self.email_marketing_campaign)
+
+    def test_create_view_as_webpage(self):
+        """Can we set the "view as webpage" flag when we create an EMC?
+        """
+        link_text = 'bzxbnxzcvxczvnbmxcvzxcvcvxnbv'
+        page_text = 'uioqweriuoerwiueriuerwuiweriu'
+
+        kwargs = self.email_marketing_campaign_kwargs
+        kwargs['is_view_as_webpage_enabled'] = True
+        kwargs['view_as_web_page_link_text'] = link_text
+        kwargs['view_as_web_page_text'] = page_text
+        self.email_marketing_campaign = self.cc.new_email_marketing_campaign(
+            **kwargs)
+        html, text = self.cc.preview_email_marketing_campaign(
+            self.email_marketing_campaign)
+        self.assertIn(link_text, html)
+        self.assertIn(page_text, html)
+
+    def test_update_view_as_webpage(self):
+        """Can we set the "view as webpage" flag when we update an EMC?
+        """
+        self.email_marketing_campaign = self.cc.new_email_marketing_campaign(
+            **self.email_marketing_campaign_kwargs)
+
+        link_text = 'bzxbnxzcvxczvnbmxcvzxcvcvxnbv'
+        page_text = 'uioqweriuoerwiueriuerwuiweriu'
+
+        kwargs = self.email_marketing_campaign_kwargs
+        kwargs['email_marketing_campaign'] = self.email_marketing_campaign
+        kwargs['is_view_as_webpage_enabled'] = True
+        kwargs['view_as_web_page_link_text'] = link_text
+        kwargs['view_as_web_page_text'] = page_text
+        self.email_marketing_campaign = (
+            self.cc.update_email_marketing_campaign(**kwargs))
+        html, text = self.cc.preview_email_marketing_campaign(
+            self.email_marketing_campaign)
+        self.assertIn(link_text, html)
+        self.assertIn(page_text, html)
+
+    def test_create_set_permission_reminder(self):
+        """Can we set the permission reminder flag when we create an EMC?
+        """
+        reminder_text = '45646564788794561232456786453'
+
+        kwargs = self.email_marketing_campaign_kwargs
+        kwargs['is_permission_reminder_enabled'] = True
+        kwargs['permission_reminder_text'] = reminder_text
+        self.email_marketing_campaign = self.cc.new_email_marketing_campaign(
+            **kwargs)
+        html, text = self.cc.preview_email_marketing_campaign(
+            self.email_marketing_campaign)
+        self.assertIn(reminder_text, html)
+
+    def test_update_set_permission_reminder(self):
+        """Can we set the permission reminder flag when we update an EMC?
+        """
+        self.email_marketing_campaign = self.cc.new_email_marketing_campaign(
+            **self.email_marketing_campaign_kwargs)
+
+        reminder_text = '45646564788794561232456786453'
+
+        kwargs = self.email_marketing_campaign_kwargs
+        kwargs['email_marketing_campaign'] = self.email_marketing_campaign
+        kwargs['is_permission_reminder_enabled'] = True
+        kwargs['permission_reminder_text'] = reminder_text
+        self.email_marketing_campaign = (
+            self.cc.update_email_marketing_campaign(**kwargs))
+        html, text = self.cc.preview_email_marketing_campaign(
+            self.email_marketing_campaign)
+        self.assertIn(reminder_text, html)
 
 
 class EmailMarketingCampaignTests(django.test.TestCase):

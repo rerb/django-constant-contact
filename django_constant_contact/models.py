@@ -52,7 +52,12 @@ class ConstantContact(object):
 
     def new_email_marketing_campaign(self, name, email_content, from_email,
                                      from_name, reply_to_email, subject,
-                                     text_content, address):
+                                     text_content, address,
+                                     is_view_as_webpage_enabled=False,
+                                     view_as_web_page_link_text='',
+                                     view_as_web_page_text='',
+                                     is_permission_reminder_enabled=False,
+                                     permission_reminder_text=''):
         """Create a Constant Contact email marketing campaign.
         Returns an EmailMarketingCampaign object.
         """
@@ -79,8 +84,14 @@ class ConstantContact(object):
                 'international_state': address['international_state'],
                 'postal_code': address['postal_code'],
                 'country': address['country']
-            }
+            },
+            'is_view_as_webpage_enabled': is_view_as_webpage_enabled,
+            'view_as_web_page_link_text': view_as_web_page_link_text,
+            'view_as_web_page_text': view_as_web_page_text,
+            'is_permission_reminder_enabled': is_permission_reminder_enabled,
+            'permission_reminder_text': permission_reminder_text
         }
+
         response = url.post(data=json.dumps(data),
                             headers={'content-type': 'application/json'})
 
@@ -91,7 +102,12 @@ class ConstantContact(object):
     def update_email_marketing_campaign(self, email_marketing_campaign,
                                         name, email_content, from_email,
                                         from_name, reply_to_email, subject,
-                                        text_content, address):
+                                        text_content, address,
+                                        is_view_as_webpage_enabled=False,
+                                        view_as_web_page_link_text='',
+                                        view_as_web_page_text='',
+                                        is_permission_reminder_enabled=False,
+                                        permission_reminder_text=''):
         """Update a Constant Contact email marketing campaign.
         Returns the updated EmailMarketingCampaign object.
         """
@@ -120,8 +136,14 @@ class ConstantContact(object):
                 'international_state': address['international_state'],
                 'postal_code': address['postal_code'],
                 'country': address['country']
-            }
+            },
+            'is_view_as_webpage_enabled': is_view_as_webpage_enabled,
+            'view_as_web_page_link_text': view_as_web_page_link_text,
+            'view_as_web_page_text': view_as_web_page_text,
+            'is_permission_reminder_enabled': is_permission_reminder_enabled,
+            'permission_reminder_text': permission_reminder_text
         }
+
         response = url.put(data=json.dumps(data),
                            headers={'content-type': 'application/json'})
 
