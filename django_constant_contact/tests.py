@@ -1,3 +1,4 @@
+import time
 import uuid
 import unittest
 
@@ -43,6 +44,7 @@ class ConstantContactTests(unittest.TestCase):
             'subject': 'Test Subject',
             'text_content': '<text>Test Text Content</text>',
             'address': ORG_ADDRESS}
+        time.sleep(1)  # So we don't run over our queries-per-second quota.
 
     def tearDown(self):
         if self.email_marketing_campaign:
