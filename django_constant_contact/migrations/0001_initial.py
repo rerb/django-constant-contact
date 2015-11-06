@@ -1,34 +1,22 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import migrations, models
+import jsonfield.fields
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'EmailMarketingCampaign'
-        db.create_table(u'django_constant_contact_emailmarketingcampaign', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('constant_contact_id', self.gf('django.db.models.fields.BigIntegerField')(unique=True)),
-            ('data', self.gf('jsonfield.fields.JSONField')(default={})),
-        ))
-        db.send_create_signal(u'django_constant_contact', ['EmailMarketingCampaign'])
+    dependencies = [
+    ]
 
-
-    def backwards(self, orm):
-        # Deleting model 'EmailMarketingCampaign'
-        db.delete_table(u'django_constant_contact_emailmarketingcampaign')
-
-
-    models = {
-        u'django_constant_contact.emailmarketingcampaign': {
-            'Meta': {'object_name': 'EmailMarketingCampaign'},
-            'constant_contact_id': ('django.db.models.fields.BigIntegerField', [], {'unique': 'True'}),
-            'data': ('jsonfield.fields.JSONField', [], {'default': '{}'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
-        }
-    }
-
-    complete_apps = ['django_constant_contact']
+    operations = [
+        migrations.CreateModel(
+            name='EmailMarketingCampaign',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('constant_contact_id', models.BigIntegerField(unique=True)),
+                ('data', jsonfield.fields.JSONField(default=dict)),
+            ],
+        ),
+    ]
