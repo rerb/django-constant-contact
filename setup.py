@@ -18,10 +18,10 @@ setup(
     packages=[
         'django_constant_contact',
         'django_constant_contact.migrations'
-        ],
+    ],
     install_requires=[
         "Django>=1.7",
-    ]
+    ],
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
