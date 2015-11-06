@@ -21,6 +21,8 @@ setup(
     ],
     install_requires=[
         "Django>=1.7",
+        'mailchimp',
+        'nap',
     ],
     classifiers=[
         'Environment :: Web Environment',
@@ -32,5 +34,4 @@ setup(
         'Framework :: Django',
     ],
     test_suite='tests.main',
-    install_requires=['mailchimp', 'nap'],
 )
