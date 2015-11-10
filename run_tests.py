@@ -66,7 +66,7 @@ def main():
     from django.test.utils import get_runner
     test_runner = get_runner(global_settings)
 
-    # import pdb; pdb.set_trace()
+    django.setup()
 
     if django.VERSION > (1, 2):
         test_runner = test_runner()
