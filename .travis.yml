@@ -2,6 +2,15 @@ language: python
 python:
 - '2.6'
 - '2.7'
+env:
+  global:
+  - CONSTANT_CONTACT_FROM_EMAIL=bulletin@aashe.org
+  - CONSTANT_CONTACT_REPLY_TO_EMAIL=bulletin@aashe.org
+  - secure: CwdUKnbv7ahlV98fw9Hyz+3aHfg+XWw9tvykseO8i+rVwLDBldhkrefY/jl8QU5AvlWl7hbPqRA24GhCsTmLxlXyyxxDyJlHZg1JLw3AS0T5uCXKOx+Y9hhU2M0J4TA7Xgv37/flJLkzxkqeDAc6AUXfF3PWs4qM6yccGGHQT2A=
+  - secure: X2xR8uuwJZ4euepO1cb36qXDzqQURAfnv6oOBYuJz0RlDIzVA5Up/lyDFz7QFLQhnR+Bk2ekKSganYo1xMBVlYbcpXBZ9E7Wqpmvmg8p5MphbcQn2k0DsjpDALm7SteVO31cCJ4zVP5s7Zp+QL262mU6lHdtyWyjENH2elD4sxg=
+  - secure: mD52GwmNEyh8BoHsSHDj2cv+g2euZ5wBp4dcycEKs7NGS7ovJgO2nzhRAu9BHwn38IOIfLVVa4NQ06FreuKq/wxJ5n2A5140MlP8Mx+eY8KiOzpsY/g5r6731lIt3vD8Kz+Ph20RfoEEjJzEvvrJIiQtjxwXNDT6aBoUJzJ6Dn4=
+  - secure: N9EKo6KOPxFF/YWUqZW8EBH3/Y8U4TD4KtTzZCSz3eLfs8H88Qthnfd9YIFK1AtFvbk4yay2fo7+YdxVpiizO9VsD9gzoStDtNwWk16jfFU6CbaMvsb6iEGaYKAyKnY3Kj4yEn/bCQvHq58H/3yP5HZQ6XGaQwpodbusqxOXpUo=
+  - secure: TuL29CoCgcfxrPevAzYyVltwMRgkC0GaA/wocv1xIdbxOurbuVYlNFEf8iDvO0Q4LFQGjwMnJnLMGFkIzXSOXQsFzZHW/Ub7YTHU9Sj9lIsnm9GevblfXexY/HSHXVbSA0yEhHMM7NZ1c4Sa3wXjZp8fduSXZVJNyt75nekJ2Tw=
 install:
 - pip install -r requirements.txt
 - pip install -r test_requirements.txt
