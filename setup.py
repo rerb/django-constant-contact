@@ -20,9 +20,11 @@ setup(
         'django_constant_contact.migrations'
     ],
     install_requires=[
-        "Django>=1.7",
-        'mailchimp',
-        'nap',
+        "Django>=1.7,<1.9",
+        'django-jsonfield==0.9.15',
+        'mailchimp==2.0.9',
+        'nap==2.0.0'
+        'requests==2.9.1',
     ],
     classifiers=[
         'Environment :: Web Environment',
