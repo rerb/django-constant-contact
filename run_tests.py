@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import sys
 import django
@@ -58,8 +59,6 @@ def main():
         'CONSTANT_CONTACT_USERNAME', None)
     global_settings.CONSTANT_CONTACT_PASSWORD = os.environ.get(
         'CONSTANT_CONTACT_PASSWORD', None)
-    global_settings.MAILCHIMP_API_KEY = os.environ.get(
-        'MAILCHIMP_API_KEY', None)
 
     global_settings.SECRET_KEY = "blahblah"
 

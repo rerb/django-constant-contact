@@ -1,11 +1,11 @@
 import json
 
+import jsonfield
+import nap
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_delete, pre_save
-import jsonfield
-import mailchimp
-import nap
+from premailer import Premailer
 
 
 class ConstantContactAPIError(Exception):
@@ -166,12 +166,10 @@ class ConstantContact(object):
 
     def inline_css(self, html):
         """Inlines CSS defined in external style sheets.
-
-        This implementation requires a Mailchimp account.
         """
-        mailchimp_api = mailchimp.Mailchimp(settings.MAILCHIMP_API_KEY)
-        response = mailchimp_api.helper.inline_css(html)
-        return response['html']
+        premailer = Premailer(html)
+        inlined_html = premailer.transform(pretty_print=True)
+        return inlined_html
 
     def preview_email_marketing_campaign(self, email_marketing_campaign):
         """Returns HTML and text previews of an EmailMarketingCampaign.

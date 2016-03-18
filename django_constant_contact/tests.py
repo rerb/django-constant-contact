@@ -122,18 +122,47 @@ class ConstantContactTests(unittest.TestCase):
 
     def test_inline_css(self):
         """Can we inline CSS?
-
-        Needs better test HTML to actually test output of inline_css.
-        Since we're using MailChimp's API to do the inlining, we don't
-        have to unit test their service, so we'll assume it works.  If
-        we switch ConstantContact.inline_css() to a different implementation,
-        we might need more rigorous tests.  For now, if we can call into
-        inline_css() without an Exception, that's good enough.
         """
-        html = '<html><head></head><body></body></html>'
+        html = """
+        <html>
+          <head>
+            <style type="text/css">
+             body {
+               width: 100%;
+             }
+             a {
+               text-decoration: none;
+             }
+             .section {
+               padding-top: 5px;
+             }
+            </style>
+          </head>
+          <body>
+            <div class="section">
+              <a href="#"></a>
+            </div>
+          </body>
+        </html>
+        """
+        expected_inlined_html = """
+        <html>
+          <head>
+          </head>
+          <body style="width: 100%">
+            <div class="section" style="padding-top: 5px">
+              <a href="#" style="text-decoration: none"></a>
+            </div>
+          </body>
+        </html>
+        """
         inlined_html = self.cc.inline_css(html)
+        whitespaceless_expected_inlined_html = (
+            ''.join(expected_inlined_html.split(expected_inlined_html)))
+        whitespaceless_inlined_html = ''.join(inlined_html.split(inlined_html))
 
-        self.assertEqual(html, inlined_html)
+        self.assertEqual(whitespaceless_expected_inlined_html,
+                         whitespaceless_inlined_html)
 
     def test_preview_email_marketing_campaign(self):
         """Can we preview an Email Marketing Campaign?
