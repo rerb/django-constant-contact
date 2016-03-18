@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
+from setuptools import setup
 import os
 
 
@@ -9,8 +9,9 @@ def read(fname):
 
 setup(
     name='django-constant-contact',
-    version='0.2',
-    description="Django package for creating email marketing campaigns in Constant Contact",
+    version='1.0',
+    description=("Django package for creating email marketing "
+                 "campaigns in Constant Contact"),
     author='Bob Erb',
     author_email='bob.erb@aashe.org',
     url='https://github.com/aashe/django-constant-contact',
