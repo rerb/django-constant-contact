@@ -187,9 +187,6 @@ class ConstantContact(object):
 class EmailMarketingCampaign(models.Model):
     """A Constant Contact email marketing campaign.
 
-    "Email marketing campaign" is the Constant Contact term analogous
-    to our "Issue".
-
     WARNING! Deleting an EmailMarketingCampaign will also delete
              the corresponding email marketing campaign at
              Constant Contact.
@@ -204,13 +201,6 @@ class EmailMarketingCampaign(models.Model):
     living on a Constant Contact server.  To enforce this, the
     ID Constant Contact uses to identify an email marketing campaign
     is stored here as constant_contact_id, with a uniqueness constraint.
-
-    It's a pretty sparse class -- no instance methods at all.  Shouldn't
-    these fields just be absorbed into Issue?  I concluded not, since
-    there's some processing done here, pulling `constant_contact_id`
-    out of `data` in pre_save, cascading a delete into Constant
-    Contact in pre_delete, then wiring those up to signals.  Seems
-    like I'd just be cluttering up Issue with this stuff.
     """
     constant_contact_id = models.BigIntegerField(unique=True)
     data = jsonfield.JSONField()
