@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name='django-constant-contact',
-    version='1.0.3',
+    version='1.0.4',
     description=("Django package for creating email marketing "
                  "campaigns in Constant Contact"),
     author='Bob Erb',
@@ -37,4 +37,4 @@ setup(
         'Framework :: Django',
     ],
     test_suite='tests.main',
-)
+    zip_safe=False)

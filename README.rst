@@ -37,7 +37,7 @@ developer.)
 
 ``CONSTANT_CONTACT_ACCESS_TOKEN`` is the access token granted to your
 application by a Constant Contact user. This is the User who will own
-all Constant Contact versions of uploaded email marketing campaigns.
+the uploaded Constant Contact email marketing campaigns.
 
 Usage Examples
 --------------
