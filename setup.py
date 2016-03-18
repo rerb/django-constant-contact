@@ -15,7 +15,7 @@ setup(
     author='Bob Erb',
     author_email='bob.erb@aashe.org',
     url='https://github.com/aashe/django-constant-contact',
-    long_description=read("README.md"),
+    long_description=read("README.rst"),
     packages=[
         'django_constant_contact',
         'django_constant_contact.migrations'
