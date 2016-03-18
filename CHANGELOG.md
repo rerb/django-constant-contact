@@ -3,6 +3,10 @@
 ## [Unreleased]
 
 ### Changed
+## [1.0.4] - 2016-03-18
+- Set zip_safe = False in setup.py.
+
+### Changed
 ## [1.0.2] - 2016-03-18
 - Replaced README.md with README.rst.
 
