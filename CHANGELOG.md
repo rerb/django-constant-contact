@@ -3,6 +3,10 @@
 ## [Unreleased]
 
 ### Changed
+## [1.0.5] - 2016-03-18
+- Don't allow Django 1.9rcx to be installed.
+
+### Changed
 ## [1.0.4] - 2016-03-18
 - Set zip_safe = False in setup.py.
 
