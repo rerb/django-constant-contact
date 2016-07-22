@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name='django-constant-contact',
-    version='1.0.5',
+    version='1.0.6',
     description=("Django package for creating email marketing "
                  "campaigns in Constant Contact"),
     author='Bob Erb',
@@ -21,7 +21,7 @@ setup(
         'django_constant_contact.migrations'
     ],
     install_requires=[
-        "Django>=1.7,<=1.8",
+        'Django>=1.7.11,<=1.8.14',
         'django-jsonfield==0.9.15',
         'nap==2.0.0',
         'premailer==2.10.1',
