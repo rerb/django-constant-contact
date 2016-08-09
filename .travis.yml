@@ -11,6 +11,8 @@ env:
   - secure: N9EKo6KOPxFF/YWUqZW8EBH3/Y8U4TD4KtTzZCSz3eLfs8H88Qthnfd9YIFK1AtFvbk4yay2fo7+YdxVpiizO9VsD9gzoStDtNwWk16jfFU6CbaMvsb6iEGaYKAyKnY3Kj4yEn/bCQvHq58H/3yP5HZQ6XGaQwpodbusqxOXpUo=
   - secure: TuL29CoCgcfxrPevAzYyVltwMRgkC0GaA/wocv1xIdbxOurbuVYlNFEf8iDvO0Q4LFQGjwMnJnLMGFkIzXSOXQsFzZHW/Ub7YTHU9Sj9lIsnm9GevblfXexY/HSHXVbSA0yEhHMM7NZ1c4Sa3wXjZp8fduSXZVJNyt75nekJ2Tw=
 install:
+- pip install -U pip
+- pip install -U setuptools
 - pip install -r requirements.txt
 - pip install -r test_requirements.txt
 script: coverage run run_tests.py

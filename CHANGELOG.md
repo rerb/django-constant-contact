@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Changed
+## [1.1.2] - 2016-08-09
+- Upgrade pip and setuptools in .travis.yml. django-bulletin
+  depends on django-minify, which depends on other
+  packages which need the upgraded setuptools.
+
 ### Added
 ## [1.1] - 2016-08-09
 - Email content is now html-minified before sending to Constant Contact.
