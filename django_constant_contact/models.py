@@ -5,6 +5,7 @@ import nap
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_delete, pre_save
+from htmlmin.minify import html_minify
 from premailer import Premailer
 
 
@@ -64,6 +65,7 @@ class ConstantContact(object):
         url = self.api.join(self.EMAIL_MARKETING_CAMPAIGN_URL)
 
         inlined_email_content = self.inline_css(email_content)
+        minified_email_content = html_minify(inlined_email_content)
 
         data = {
             'name': name,
@@ -71,7 +73,7 @@ class ConstantContact(object):
             'from_name': from_name,
             'from_email': from_email,
             'reply_to_email': reply_to_email,
-            'email_content': inlined_email_content,
+            'email_content': minified_email_content,
             'email_content_format': 'HTML',
             'text_content': text_content,
             'message_footer': {
@@ -116,6 +118,7 @@ class ConstantContact(object):
                       str(email_marketing_campaign.constant_contact_id)]))
 
         inlined_email_content = self.inline_css(email_content)
+        minified_email_content = html_minify(inlined_email_content)
 
         data = {
             'name': name,
@@ -123,7 +126,7 @@ class ConstantContact(object):
             'from_name': from_name,
             'from_email': from_email,
             'reply_to_email': reply_to_email,
-            'email_content': inlined_email_content,
+            'email_content': minified_email_content,
             'email_content_format': 'HTML',
             'text_content': text_content,
             'message_footer': {

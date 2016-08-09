@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+## [1.1] - 2016-08-09
+- Email content is now html-minified before sending to Constant Contact.
+
 ### Changed
 ## [1.0.5] - 2016-03-18
 - Don't allow Django 1.9rcx to be installed.
