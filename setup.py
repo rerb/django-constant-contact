@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name='django-constant-contact',
-    version='1.1.2',
+    version='1.1.3',
     description=("Django package for creating email marketing "
                  "campaigns in Constant Contact"),
     author='Bob Erb',
@@ -25,7 +25,7 @@ setup(
         'django-jsonfield==0.9.15',
         'django-htmlmin==0.9.1',
         'nap==2.0.0',
-        'premailer==2.10.1',
+        'premailer==3.0.1',
         'requests==2.9.1',
     ],
     classifiers=[

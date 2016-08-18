@@ -2,5 +2,5 @@ Django>=1.7.11,<=1.8.14
 django-htmlmin==0.9.1
 django-jsonfield==0.9.15
 nap==2.0.0
-premailer==2.10.0
+premailer==3.0.1
 requests==2.9.1
