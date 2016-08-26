@@ -20,3 +20,6 @@ after_success: coveralls
 notifications:
   hipchat: 5534a6204d6caa1a45ac2444282aca@WebDevActivity
   email: false
+addons:
+    code_climate:
+        repo_token: f55edde08719ab751fbe0949ca35d5455238cabcfe5bdf31e7f05910ea451f0c
