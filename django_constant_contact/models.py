@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json
 
 import jsonfield
@@ -66,6 +68,7 @@ class ConstantContact(object):
 
         inlined_email_content = self.inline_css(email_content)
         minified_email_content = html_minify(inlined_email_content)
+        worked_around_email_content = work_around(minified_email_content)
 
         data = {
             'name': name,
@@ -73,7 +76,7 @@ class ConstantContact(object):
             'from_name': from_name,
             'from_email': from_email,
             'reply_to_email': reply_to_email,
-            'email_content': minified_email_content,
+            'email_content': worked_around_email_content,
             'email_content_format': 'HTML',
             'text_content': text_content,
             'message_footer': {
@@ -119,6 +122,7 @@ class ConstantContact(object):
 
         inlined_email_content = self.inline_css(email_content)
         minified_email_content = html_minify(inlined_email_content)
+        worked_around_email_content = work_around(minified_email_content)
 
         data = {
             'name': name,
@@ -126,7 +130,7 @@ class ConstantContact(object):
             'from_name': from_name,
             'from_email': from_email,
             'reply_to_email': reply_to_email,
-            'email_content': minified_email_content,
+            'email_content': worked_around_email_content,
             'email_content_format': 'HTML',
             'text_content': text_content,
             'message_footer': {
@@ -227,3 +231,25 @@ pre_save.connect(EmailMarketingCampaign.pre_save,
 
 pre_delete.connect(EmailMarketingCampaign.pre_delete,
                    sender=EmailMarketingCampaign)
+
+
+def work_around(content):
+    """A work-around for a Constant Contact known issue.
+
+    ‎09-06-2016 02:28 PM, from Constant Contact support;
+
+    >> It appears you are running into a known issue with creating
+       emails with unsupported characters within them. In looking at
+       the HTML that came over for this email, I found an instancea of
+       a "smart" or "curly" apostrophe. Though it appears similar ( ’
+       vs ' ), only the standard apostrophe (the second one) is
+       available to be used.
+
+    >> While this should return an error, the known issue is that we
+       are creating the email with these special characters
+       anyway. This issue has been brought to the attention of our
+       engineering and development teams for investigation. The
+       workaround at this point is remove any of these unsupported
+       characters from the code before submitting.
+    """
+    return content.decode("utf-8").replace(u"\u2019", "'").encode("utf-8")

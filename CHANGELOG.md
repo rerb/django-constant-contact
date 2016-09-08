@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Added
+## [1.2] - 2016-09-07
+- Implement work-around for Constant Contact known issue.  When
+  triggered, it causes the Advanced Editor to display nothing.
+
 ### Changed
 ## [1.1.3] - 2016-08-18
 - Upgrade version of premailer used.
