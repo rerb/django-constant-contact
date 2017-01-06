@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+## [1.3] - 2017-01-07
+- Update version of Django.
+
 ### Added
 ## [1.2] - 2016-09-07
 - Implement work-around for Constant Contact known issue.  When

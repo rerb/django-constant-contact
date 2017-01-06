@@ -7,9 +7,10 @@ import os
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+
 setup(
     name='django-constant-contact',
-    version='1.2.1',
+    version='1.3',
     description=("Django package for creating email marketing "
                  "campaigns in Constant Contact"),
     author='Bob Erb',
@@ -21,7 +22,7 @@ setup(
         'django_constant_contact.migrations'
     ],
     install_requires=[
-        'Django>=1.7.11,<=1.8.15',
+        'Django<1.9',
         'django-jsonfield==0.9.15',
         'django-htmlmin==0.9.1',
         'nap==2.0.0',
