@@ -2,7 +2,7 @@
 
 import json
 
-import jsonfield
+from django.contrib.postgres.fields import JSONField
 import nap
 from django.conf import settings
 from django.db import models
@@ -210,7 +210,7 @@ class EmailMarketingCampaign(models.Model):
     is stored here as constant_contact_id, with a uniqueness constraint.
     """
     constant_contact_id = models.BigIntegerField(unique=True)
-    data = jsonfield.JSONField()
+    data = JSONField()
 
     @classmethod
     def pre_save(cls, sender, instance, *args, **kwargs):
