@@ -210,7 +210,7 @@ class EmailMarketingCampaign(models.Model):
     is stored here as constant_contact_id, with a uniqueness constraint.
     """
     constant_contact_id = models.BigIntegerField(unique=True)
-    data = JSONField()
+    data = JSONField(null=True)
 
     @classmethod
     def pre_save(cls, sender, instance, *args, **kwargs):
