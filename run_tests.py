@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import os
 import sys
+
 import django
+import dj_database_url
+
 
 BASE_PATH = os.path.dirname(__file__)
 
@@ -23,20 +26,8 @@ def main():
         'django.contrib.contenttypes',
         'django_constant_contact',
     )
-    if django.VERSION > (1, 2):
-        global_settings.DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': os.path.join(BASE_PATH, 'connpass.sqlite'),
-                'USER': '',
-                'PASSWORD': '',
-                'HOST': '',
-                'PORT': '',
-            }
-        }
-    else:
-        global_settings.DATABASE_ENGINE = "sqlite3"
-        global_settings.DATABASE_NAME = ":memory:"
+
+    global_settings.DATABASES = {'default': dj_database_url.config()}
 
     global_settings.MIDDLEWARE_CLASSES = (
         'django.middleware.common.CommonMiddleware',
