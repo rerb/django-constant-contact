@@ -24,7 +24,7 @@ setup(
     install_requires=[
         'Django==1.9.13',
         'jsonfield==2.0.2',
-        'django-htmlmin==0.9.1',
+        'django-htmlmin==0.11.0',
         'nap==2.0.0',
         'premailer==3.0.1',
         'requests==2.9.1',
