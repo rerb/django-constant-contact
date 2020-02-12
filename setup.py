@@ -22,7 +22,7 @@ setup(
         'django_constant_contact.migrations'
     ],
     install_requires=[
-        'Django==1.9.13',
+        'Django==1.11.28',
         'jsonfield==2.0.2',
         'django-htmlmin==0.9.1',
         'nap==2.0.0',

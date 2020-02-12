@@ -1,4 +1,4 @@
-Django==1.9.13
+Django==1.11.28
 django-htmlmin==0.9.1
 jsonfield==2.0.2
 nap==2.0.0
