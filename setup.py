@@ -27,7 +27,7 @@ setup(
         'django-htmlmin==0.9.1',
         'nap==2.0.0',
         'premailer==3.0.1',
-        'requests==2.9.1',
+        'requests==2.20.0',
     ],
     classifiers=[
         'Environment :: Web Environment',
